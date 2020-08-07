@@ -1,0 +1,14 @@
+<app-loading [loading]="loading"></app-loading>
+<div class="d-flex mt-5 justify-content-end">
+  <button class="btn btn-primary" (click)="navigateToAddPost()">Add</button>
+</div>
+<div class="row">
+  <ng-container *ngFor="let post of posts">
+    <div class="col-6">
+      <app-post-card
+        [post]="post"
+        (buttonClicked)="postActions($event)"
+      ></app-post-card>
+    </div>
+  </ng-container>
+</div>

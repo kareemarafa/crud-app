@@ -1,0 +1,31 @@
+<div class="card my-3">
+  <div class="card-body">
+    <h5
+      class="card-title"
+      [tooltip]="(post?.title).length > 50 ? post?.title : ''"
+    >
+      {{
+        (post?.title).length > 50
+          ? (post?.title).substr(0, 50) + "..."
+          : post?.title
+      }}
+    </h5>
+    <p class="card-text">
+      {{ post?.body }}
+    </p>
+    <div class="d-flex justify-content-end">
+      <button
+        class="btn btn-info mr-2"
+        (click)="buttonClicked.emit({ type: 'edit', data: post })"
+      >
+        Edit
+      </button>
+      <button
+        class="btn btn-danger mr-2"
+        (click)="buttonClicked.emit({ type: 'delete', data: post.id })"
+      >
+        Delete
+      </button>
+    </div>
+  </div>
+</div>
